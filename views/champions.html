@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Campeões - League of Legends{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center my-4">Lista de Campeões</h1>
+    
+    <div class="row">
+        {% for key, champ in champions.items() %}
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <img src="https://ddragon.leagueoflegends.com/cdn/13.19.1/img/champion/{{ champ.image.full }}" class="card-img-top" alt="{{ champ.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ champ.name }}</h5>
+                    <p class="card-text">{{ champ.title }}</p>
+                    <a href="/champion/{{ key }}" class="btn btn-primary">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}{{ champion.name }} - Detalhes{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 text-center">
+            <img src="https://ddragon.leagueoflegends.com/cdn/13.19.1/img/champion/{{ champion.image.full }}" class="img-fluid rounded">
+            <h2 class="mt-3">{{ champion.name }}</h2>
+            <h5 class="text-muted">{{ champion.title }}</h5>
+        </div>
+
+        <div class="col-md-8">
+            <h3>Descrição</h3>
+            <p>{{ champion.blurb }}</p>
+
+            <h4>Tags</h4>
+            <p>
+                {% for tag in champion.tags %}
+                    <span class="badge bg-primary">{{ tag }}</span>
+                {% endfor %}
+            </p>
+
+            <h4>Atributos</h4>
+            <ul>
+                <li><strong>Ataque:</strong> {{ champion.info.attack }}</li>
+                <li><strong>Defesa:</strong> {{ champion.info.defense }}</li>
+                <li><strong>Magia:</strong> {{ champion.info.magic }}</li>
+                <li><strong>Dificuldade:</strong> {{ champion.info.difficulty }}</li>
+            </ul>
+
+            <h4>Estatísticas</h4>
+            <ul>
+                <li><strong>Vida Inicial:</strong> {{ champion.stats.hp }}</li>
+                <li><strong>Armadura:</strong> {{ champion.stats.armor }}</li>
+                <li><strong>Dano de Ataque:</strong> {{ champion.stats.attackdamage }}</li>
+                <li><strong>Velocidade de Ataque:</strong> {{ champion.stats.attackspeed }}</li>
+                <li><strong>Alcance de Ataque:</strong> {{ champion.stats.attackrange }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
