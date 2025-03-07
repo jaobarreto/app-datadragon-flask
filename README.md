@@ -23,7 +23,7 @@ Certifique-se de ter o **Python 3** instalado no seu sistema.
 
 3. Acesse o projeto no navegador através do endereço:
 ```bash
- http://localhost:5000
+ http://localhost:4000
 ```
 
 ## Licença
