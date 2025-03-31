@@ -1,0 +1,21 @@
+# Ambiente virtual
+venv/
+.env
+*.pyc
+__pycache__/
+instance/
+
+# Banco de dados SQLite
+*.sqlite3
+*.db
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+
+# Configurações do VSCode (se estiver usando)
+.vscode/
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db

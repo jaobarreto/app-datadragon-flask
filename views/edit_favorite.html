@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Campeão Favorito{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="my-4">Editar Campeão Favorito</h1>
+    <form method="POST">
+        <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ champion.name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="title">Título</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ champion.title }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Salvar</button>
+    </form>
+</div>
+{% endblock %}

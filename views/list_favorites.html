@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Campeões Favoritos{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center my-4">Campeões Favoritos</h1>
+
+    <div class="row">
+        {% for champion in favorites %}
+        <div class="col-md-4 mb-4">
+            <div class="card text-center">
+                <img src="https://ddragon.leagueoflegends.com/cdn/13.19.1/img/champion/{{ champion.name }}.png" class="card-img-top" alt="{{ champion.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ champion.name }}</h5>
+                    <p class="card-text">{{ champion.title }}</p>
+                    <a href="/favorites/{{ champion.id }}/edit" class="btn btn-warning">Editar</a>
+                    <a href="/favorites/{{ champion.id }}/delete" class="btn btn-danger">Excluir</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="pagination justify-content-center">
+        {% if current_page > 1 %}
+        <a href="/favorites?page={{ current_page - 1 }}&per_page={{ per_page }}" class="btn btn-primary">Anterior</a>
+        {% endif %}
+        
+        {% if current_page < pages %}
+        <a href="/favorites?page={{ current_page + 1 }}&per_page={{ per_page }}" class="btn btn-primary">Próximo</a>
+        {% endif %}
+    </div>
+
+    <div class="text-center mt-3">
+        <p>Mostrando {{ favorites|length }} de {{ total }} campeões favoritos (Página {{ current_page }} de {{ pages }}).</p>
+    </div>
+</div>
+{% endblock %}

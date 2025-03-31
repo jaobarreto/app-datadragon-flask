@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Excluir Campeão Favorito{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center my-4">Excluir Campeão Favorito</h1>
+    
+    {% if deleted %}
+        <div class="alert alert-success text-center" role="alert">
+            O campeão "{{ champion.name }}" foi excluído com sucesso da sua lista de favoritos!
+        </div>
+        <a href="{{ url_for('get_favorites') }}" class="btn btn-primary">Voltar para a lista de favoritos</a>
+    {% else %}
+        <div class="alert alert-warning text-center" role="alert">
+            Tem certeza que deseja excluir o campeão "{{ champion.name }}" da sua lista de favoritos?
+        </div>
+        <form action="/favorites/{{ champion.id }}/delete" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit" class="btn btn-danger">Sim, excluir</button>
+            <a href="{{ url_for('get_favorites') }}" class="btn btn-secondary">Cancelar</a>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}
